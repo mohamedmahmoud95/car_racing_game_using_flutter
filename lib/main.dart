@@ -1,7 +1,9 @@
 
 
 import 'package:car_racing_game/Model/car.dart';
+import 'package:car_racing_game/Model/gift.dart';
 import 'package:car_racing_game/car_widget.dart';
+import 'package:car_racing_game/gift_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,8 +47,14 @@ class _HomeState extends State<Home> {
        body: Center(
          child: Stack(
            children: [
-         CarWidget(car: sampleCar1,),
-      ],
+             CarWidget(car: sampleCar1,),
+             CarWidget(car: sampleCar2,),
+             CarWidget(car: sampleCar3,),
+             CarWidget(car: sampleCar4,),
+             GiftWidget(gift: health),
+             GiftWidget(gift: damage),
+
+           ],
          ),
        ),
     );

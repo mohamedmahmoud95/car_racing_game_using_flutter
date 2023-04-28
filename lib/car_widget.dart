@@ -12,9 +12,9 @@ class CarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 150,
-      top: 600,
-      child: Container(
+      left: car.leftPosition,
+      top:  car.topPosition,
+      child: SizedBox(
         height: 100,
         width: 100,
         child: Image.asset(car.imageURL),
