@@ -14,6 +14,21 @@ class GiftWidget extends StatefulWidget {
 }
 
 class _GiftWidgetState extends State<GiftWidget> {
+  void moveDown()
+  {
+    setState(() {
+      widget.gift.topPosition +=10;
+    });
+  }
+
+
+  void moveUp()
+  {
+    setState(() {
+      widget.gift.topPosition -=10;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return  Positioned(

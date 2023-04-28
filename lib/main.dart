@@ -1,11 +1,14 @@
 
 
+import 'dart:async';
+
 import 'package:car_racing_game/Model/car.dart';
 import 'package:car_racing_game/Model/gift.dart';
 import 'package:car_racing_game/car_widget.dart';
 import 'package:car_racing_game/gift_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'joystick.dart';
 
 void main(){runApp(MyApp());}
 
@@ -39,6 +42,34 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    startGame();
+  }
+
+  void startGame(){
+    Timer.periodic(const Duration(milliseconds:500 ), (timer) {moveDown(); });
+  }
+  void moveDown()
+  {
+    setState(() {
+      health.topPosition +=20;
+    });
+  }
+
+
+  void moveUp()
+  {
+    setState(() {
+      health.topPosition -=20;
+    });
+  }
+
+
+  late JoyStick joyStick1;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -53,6 +84,7 @@ class _HomeState extends State<Home> {
              CarWidget(car: sampleCar4,),
              GiftWidget(gift: health),
              GiftWidget(gift: damage),
+             const JoyStick(),
 
            ],
          ),
